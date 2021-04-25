@@ -22,8 +22,9 @@ export default function Tasks({navigation}) {
      }, [])
     useFocusEffect(
         useCallback(() => {
+            setloading(true);
             (async()=>{
-                setloading(true);
+                
                 const responseUser = getCurrentUser()
                 setuser(responseUser)
                 const result = await getTasks('tasks', 'userId', getCurrentUser().uid)
@@ -99,7 +100,7 @@ export default function Tasks({navigation}) {
     }else{
        return ( 
             <View>
-                <Loading isVisible={loading} text="Obteniendo tareas..."/>
+                <Loading isVisible={true} text="Obteniendo tareas..."/>
             </View>
 
         )
